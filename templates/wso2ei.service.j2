@@ -1,6 +1,7 @@
 [Unit]
 Description={{ wso2_app }} init script
-After=network.target
+Requires=network-online.target
+After=network-online.target
 
 [Service]
 LimitNOFILE=65535
@@ -11,6 +12,7 @@ Group={{ wso2_group }}
 Environment=JAVA_HOME={{ java_home }}
 Environment=JAVA_OPTS=
 
+PIDFile={{ carbon_home }}/wsp2ei.pid
 ExecStart={{ carbon_home }}/bin/integrator.sh -DportOffset={{wso2_app_offset}} start
 ExecStop={{ carbon_home }}/bin/integrator.sh -DportOffset={{wso2_app_offset}} stop 
 

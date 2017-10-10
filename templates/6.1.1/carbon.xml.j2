@@ -44,13 +44,22 @@
        This is will become part of the End Point Reference of the
        services deployed on this server instance.
     -->
+{% if hostname is define %}
+    <HostName>{{ hostname }}</HostName>
+{% else %}
     <!--HostName>www.wso2.org</HostName-->
+{% endif %}
 
     <!--
     Host name to be used for the Carbon management console
     -->
+{% if MgtHostname is define %}
+    <MgtHostName>{{ MgtHostname }}</MgtHostName>
+{% else %}
+    <!--MgtHostName>www.wso2.org</MgtHostName-->
+{% endif %}
     <!--MgtHostName>mgt.wso2.org</MgtHostName-->
-
+{% endif %}
     <!--
         The URL of the back end server. This is where the admin services are hosted and
         will be used by the clients in the front end server.
