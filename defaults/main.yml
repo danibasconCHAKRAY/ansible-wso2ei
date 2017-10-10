@@ -27,7 +27,7 @@ oracle_driver: "ojdbc7.jar_12.1.0.1.jar"
 # Servidor
 Hostname: vminopelab21.cfv.junta-andalucia.es
 MgtHostname: vminopelab21.cfv.junta-andalucia.es
-admin_user: admin-ei
+admin_username: admin-ei
 admin_password: admin-ei
 admin_role: admin
 
