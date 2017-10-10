@@ -30,9 +30,6 @@ MgtHostname: vminopelab21.cfv.junta-andalucia.es
 admin_username: admin-ei
 admin_password: admin-ei
 admin_role: admin
-master_datasources:
-  - usermgt_datasource: 
-    jndi_config: 
 
 db_driver_class_name: oracle.jdbc.driver.OracleDriver
 db_max_active: 10
