@@ -44,7 +44,7 @@
        This is will become part of the End Point Reference of the
        services deployed on this server instance.
     -->
-{% if hostname is define %}
+{% if hostname is defined %}
     <HostName>{{ hostname }}</HostName>
 {% else %}
     <!--HostName>www.wso2.org</HostName-->
@@ -53,7 +53,7 @@
     <!--
     Host name to be used for the Carbon management console
     -->
-{% if MgtHostname is define %}
+{% if MgtHostname is defined %}
     <MgtHostName>{{ MgtHostname }}</MgtHostName>
 {% else %}
     <!--MgtHostName>www.wso2.org</MgtHostName-->
