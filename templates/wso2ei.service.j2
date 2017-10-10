@@ -1,0 +1,19 @@
+[Unit]
+Description={{ wso2_app }} init script
+After=network.target
+
+[Service]
+LimitNOFILE=65535
+Type=forking
+User={{ wso2_user }}
+Group={{ wso2_group }}
+
+Environment=JAVA_HOME={{ java_home }}
+Environment=JAVA_OPTS=
+
+ExecStart={{ carbon_home }}/bin/integrator.sh -DportOffset={{wso2_app_offset}} start
+ExecStop={{ carbon_home }}/bin/integrator.sh -DportOffset={{wso2_app_offset}} stop 
+
+[Install]
+WantedBy=multi-user.target
+
