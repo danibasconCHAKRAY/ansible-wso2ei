@@ -23,7 +23,7 @@
   become_method: sudo
   become_user: "{{ wso2_user }}"
   template:
-    src: {{ wso2_app_version }}/carbon.xml.j2
+    src: "{{ wso2_app_version }}/carbon.xml.j2"
     dest: conf/carbon.xml
     mode: 0644
   tags:
@@ -34,7 +34,7 @@
   become_method: sudo
   become_user: "{{ wso2_user }}"
   template:
-    src: {{ wso2_app_version }}/registry.xml.j2
+    src: "{{ wso2_app_version }}/registry.xml.j2"
     dest: conf/registry.xml
     mode: 0644
   tags:
@@ -45,7 +45,7 @@
   become_method: sudo
   become_user: "{{ wso2_user }}"
   template:
-    src: {{ wso2_app_version }}/user-mgt.xml.j2
+    src: "{{ wso2_app_version }}/user-mgt.xml.j2"
     dest: conf/user-mgt.xml
     mode: 0644
   tags:
@@ -56,7 +56,7 @@
   become_method: sudo
   become_user: "{{ wso2_user }}"
   template:
-    src: {{ wso2_app_version }}/axis2/axis2.xml.j2
+    src: "{{ wso2_app_version }}/axis2/axis2.xml.j2"
     dest: conf/axis2/axis2.xml
     mode: 0644
   tags:
@@ -68,7 +68,7 @@
   become_method: sudo
   become_user: "{{ wso2_user }}"
   template:
-    src: {{ wso2_app_version }}/datasource/master-datasource.xml.j2
+    src: "{{ wso2_app_version }}/datasource/master-datasource.xml.j2"
     dest: conf/datasources/master-datasource.xml
     mode: 0644
   tags:
