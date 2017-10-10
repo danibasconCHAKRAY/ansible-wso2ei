@@ -139,6 +139,7 @@
 
 - name : Appy templates for configuration
   import_tasks: wso2ei-config-main.yml
+  notify: restart wso2-app
   tags:
     - config
-    
+
