@@ -2,6 +2,8 @@
   stat:
     path: "{{ carbon_base }}/{{ wso2_app_directory }}/lib/{{ oracle_driver }}"
   register: oracle_driver_deployed
+  tags:
+    - oracle_driver
 
 - name: Copy the database drivers 
   become: true
@@ -14,4 +16,61 @@
   with_items:
     - "{{ oracle_driver }}"
   when: not oracle_driver_deployed.stat.exists
+  tags:
+    - oracle_driver
+- name: Template carbon.xml 
+  become: true
+  become_method: sudo
+  become_user: "{{ wso2_user }}"
+  template:
+    src: {{ wso2_version }}/carbon.xml.j2
+    dest: conf/carbon.xml
+    mode: 0644
+  tags:
+    - ei-config
 
+- name: Template registry.xml 
+  become: true
+  become_method: sudo
+  become_user: "{{ wso2_user }}"
+  template:
+    src: {{ wso2_version }}/registry.xml.j2
+    dest: conf/registry.xml
+    mode: 0644
+  tags:
+    - ei-config
+
+- name: Template user-mgt.xml 
+  become: true
+  become_method: sudo
+  become_user: "{{ wso2_user }}"
+  template:
+    src: {{ wso2_version }}/user-mgt.xml.j2
+    dest: conf/user-mgt.xml
+    mode: 0644
+  tags:
+    - ei-config
+
+- name: Template axis2.xml 
+  become: true
+  become_method: sudo
+  become_user: "{{ wso2_user }}"
+  template:
+    src: {{ wso2_version }}/axis2/axis2.xml.j2
+    dest: conf/axis2/axis2.xml
+    mode: 0644
+  tags:
+    - ei-config
+    - axis2
+
+- name: Template master-datasource.xml 
+  become: true
+  become_method: sudo
+  become_user: "{{ wso2_user }}"
+  template:
+    src: {{ wso2_version }}/datasource/master-datasource.xml.j2
+    dest: conf/datasources/master-datasource.xml
+    mode: 0644
+  tags:
+    - ei-config
+    - datasources
