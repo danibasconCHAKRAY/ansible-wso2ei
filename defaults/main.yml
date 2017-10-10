@@ -22,5 +22,5 @@ wso2_app_https_port: "{{ (wso2_default_https_port|int) + (wso2_app_offset|int) }
 wso2_app_http_port: "{{ (wso2_default_http_port|int) + (wso2_app_offset|int) }}"
 wso2_dir_archive: "/home/{{ wso2_user }}"
 wso2_app_archive: "{{ wso2_dir_archive }}/{{wso2_app}}-{{wso2_app_version}}.zip"
-oracle_driver: "ojdbc7.jar"
+oracle_driver: "ojdbc7.jar_12.1.0.1.jar"
 

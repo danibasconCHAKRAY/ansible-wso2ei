@@ -24,7 +24,7 @@
   become_user: "{{ wso2_user }}"
   template:
     src: "{{ wso2_app_version }}/carbon.xml.j2"
-    dest: conf/carbon.xml
+    dest: "{{ carbon_base }}/{{ wso2_app_directory }}/conf/carbon.xml"
     mode: 0644
   tags:
     - ei-config
@@ -35,7 +35,7 @@
   become_user: "{{ wso2_user }}"
   template:
     src: "{{ wso2_app_version }}/registry.xml.j2"
-    dest: conf/registry.xml
+    dest: "{{ carbon_base }}/{{ wso2_app_directory }}/conf/registry.xml"
     mode: 0644
   tags:
     - ei-config
@@ -46,7 +46,7 @@
   become_user: "{{ wso2_user }}"
   template:
     src: "{{ wso2_app_version }}/user-mgt.xml.j2"
-    dest: conf/user-mgt.xml
+    dest: "{{ carbon_base }}/{{ wso2_app_directory }}/conf/user-mgt.xml"
     mode: 0644
   tags:
     - ei-config
@@ -57,7 +57,7 @@
   become_user: "{{ wso2_user }}"
   template:
     src: "{{ wso2_app_version }}/axis2/axis2.xml.j2"
-    dest: conf/axis2/axis2.xml
+    dest: "{{ carbon_base }}/{{ wso2_app_directory }}/conf/axis2/axis2.xml"
     mode: 0644
   tags:
     - ei-config
@@ -69,7 +69,7 @@
   become_user: "{{ wso2_user }}"
   template:
     src: "{{ wso2_app_version }}/datasource/master-datasource.xml.j2"
-    dest: conf/datasources/master-datasource.xml
+    dest: "{{ carbon_base }}/{{ wso2_app_directory }}/conf/datasources/master-datasource.xml"
     mode: 0644
   tags:
     - ei-config
