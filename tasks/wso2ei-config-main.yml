@@ -68,8 +68,8 @@
   become_method: sudo
   become_user: "{{ wso2_user }}"
   template:
-    src: "{{ wso2_app_version }}/datasources/master-datasource.xml.j2"
-    dest: "{{ carbon_base }}/{{ wso2_app_directory }}/conf/datasources/master-datasource.xml"
+    src: "{{ wso2_app_version }}/datasources/master-datasources.xml.j2"
+    dest: "{{ carbon_base }}/{{ wso2_app_directory }}/conf/datasources/master-datasources.xml"
     mode: 0644
   tags:
     - ei-config
