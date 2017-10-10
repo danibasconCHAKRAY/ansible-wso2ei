@@ -18,36 +18,19 @@
   when: not oracle_driver_deployed.stat.exists
   tags:
     - oracle_driver
-- name: Template carbon.xml 
-  become: true
-  become_method: sudo
-  become_user: "{{ wso2_user }}"
-  template:
-    src: "{{ wso2_app_version }}/carbon.xml.j2"
-    dest: "{{ carbon_base }}/{{ wso2_app_directory }}/conf/carbon.xml"
-    mode: 0644
-  tags:
-    - ei-config
 
-- name: Template registry.xml 
+- name: "Template {{ item }}" 
   become: true
   become_method: sudo
   become_user: "{{ wso2_user }}"
   template:
-    src: "{{ wso2_app_version }}/registry.xml.j2"
-    dest: "{{ carbon_base }}/{{ wso2_app_directory }}/conf/registry.xml"
+    src: "{{ wso2_app_version }}/{{ item }}.j2"
+    dest: "{{ carbon_base }}/{{ wso2_app_directory }}/conf/{{ item }}"
     mode: 0644
-  tags:
-    - ei-config
-
-- name: Template user-mgt.xml 
-  become: true
-  become_method: sudo
-  become_user: "{{ wso2_user }}"
-  template:
-    src: "{{ wso2_app_version }}/user-mgt.xml.j2"
-    dest: "{{ carbon_base }}/{{ wso2_app_directory }}/conf/user-mgt.xml"
-    mode: 0644
+  with_items:
+    - carbon.xml
+    - registry.xml
+    - user-mgt.xml
   tags:
     - ei-config
 
