@@ -43,21 +43,21 @@ db_validation_interval: 30000
 usermgt_datasource: jdbc/INTER_USER_LST
 
 master_datasources:
-  wso2_config_db:
+  - wso2_config_db:
     name: INTER_ESB_NODO_LST
     description: The datasource used for config registry
     url: jdbc:oracle:thin:@vmorades11.cfv.junta-andalucia.es:1541/ORADES11
     username: WSOESB1_USER
     password: hQH73XwI
     jndi_config: jdbc/INTER_ESB_NODO_LST
-  wso2_gov_db:
+  - wso2_gov_db:
     name: INTER_GREG_LST
     description: The datasource used for gov registry
     url: jdbc:oracle:thin:@vmorades11.cfv.junta-andalucia.es:1541/ORADES11
     username: WSOGR_OWNER
     password: GOp22qpS
     jndi_config: jdbc/INTER_GREG_LST
-  wso2_user_db:
+  - wso2_user_db:
     name: INTER_USER_LST
     description: The datasource is used for user mangement and userstore
     url: jdbc:oracle:thin:@vmorades11.cfv.junta-andalucia.es:1541/ORADES11
