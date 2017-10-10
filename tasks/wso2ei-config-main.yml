@@ -19,7 +19,7 @@
   tags:
     - oracle_driver
 
-- name: "Template {{ item }}" 
+- name: Templates for config.
   become: true
   become_method: sudo
   become_user: "{{ wso2_user }}"
