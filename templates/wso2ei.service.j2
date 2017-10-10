@@ -14,7 +14,8 @@ Environment=JAVA_OPTS=
 
 PIDFile={{ carbon_home }}/wsp2ei.pid
 ExecStart={{ carbon_home }}/bin/integrator.sh -DportOffset={{wso2_app_offset}} start
-ExecStop={{ carbon_home }}/bin/integrator.sh -DportOffset={{wso2_app_offset}} stop 
+ExecStop={{ carbon_home }}/bin/integrator.sh -DportOffset={{wso2_app_offset}} stop
+TimeoutSec=120 
 
 [Install]
 WantedBy=multi-user.target
