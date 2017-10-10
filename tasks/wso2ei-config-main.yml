@@ -10,7 +10,7 @@
   become_method: sudo
   become_user: "{{ wso2_user }}"
   copy:
-    src: "{{ wso2_app_archive }}/{{ item }}"
+    src: "{{ wso2_dir_archive }}/{{ item }}"
     dest: "{{ carbon_base }}/{{ wso2_app_directory }}/lib/"
     mode: 0644
   with_items:
