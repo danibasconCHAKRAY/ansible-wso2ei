@@ -136,3 +136,9 @@
   notify: reload systemd
   tags:
    - systemd
+
+- name : Appy templates for configuration
+  import_tasks: wso2ei-config-main.yml
+  tags:
+    - config
+    
