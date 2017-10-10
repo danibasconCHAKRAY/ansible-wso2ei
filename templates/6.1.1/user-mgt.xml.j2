@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <!--
   ~ Copyright WSO2, Inc. (http://wso2.com)
   ~
@@ -18,10 +19,10 @@
     <Realm>
         <Configuration>
 		<AddAdmin>true</AddAdmin>
-            <AdminRole>{% admin_role %}</AdminRole>
+            <AdminRole>{{ admin_role | default('admin')  }}</AdminRole>
             <AdminUser>
-                <UserName>{% admin_username %}</UserName>
-                <Password>{% admin_password %}</Password>
+                <UserName>{{ admin_username | default('admin') }}</UserName>
+                <Password>{{ admin_password | default('admin') }}</Password>
             </AdminUser>
             <EveryOneRoleName>everyone</EveryOneRoleName> <!-- By default users in this role sees the registry root -->
             <Property name="isCascadeDeleteEnabled">true</Property>
