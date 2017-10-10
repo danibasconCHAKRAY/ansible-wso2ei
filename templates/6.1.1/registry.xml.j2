@@ -24,13 +24,17 @@
     http://wso2.org/library/tutorials/2010/04/sharing-registry-space-across-multiple-product-instances
     -->
 
+    <dbConfig name="remote_registry">
+    <dataSource>jdbc/INTER_GREG_LST</dataSource>
+    </dbConfig> 
+
     <currentDBConfig>wso2registry</currentDBConfig>
     <readOnly>false</readOnly>
     <enableCache>true</enableCache>
     <registryRoot>/</registryRoot>
 
     <dbConfig name="wso2registry">
-        <dataSource>jdbc/WSO2CarbonDB</dataSource>
+        <dataSource>jdbc/INTER_ESB_NODO_LST</dataSource>
     </dbConfig>
     
     <indexingConfiguration>
@@ -116,9 +120,18 @@
         <instanceId>instanceid</instanceId>
         <targetPath>/_system/nodes</targetPath>
     </mount-->
+    
+    <mount path="/_system/config" overwrite="true">
+        <instanceId>instanceid</instanceId>
+        <targetPath>/_system/esbnodes</targetPath>
+    </mount>
+    <mount path="/_system/governance" overwrite="true">
+        <instanceId>instanceid</instanceId>
+        <targetPath>/_system/governance</targetPath>
+    </mount>
 
     
-    <versionResourcesOnChange>false</versionResourcesOnChange>
+    <versionResourcesOnChange>true</versionResourcesOnChange>
 
     <!-- NOTE: You can edit the options under "StaticConfiguration" only before the
      startup. -->
