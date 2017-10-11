@@ -40,7 +40,7 @@
 {% if registry_mounts %}    
 {% for registry_mount in registry_mounts %}
 
-    <dbConfig name="{{ master_datasources{{ registry_mount.name }}.name }}">
+    <dbConfig name="{{ master_datasources['registry_mount.name'].name }}">
         <dataSource>{{ master_datasources{{ registry_mount.name }}.jndi_config }}</dataSource>
     </dbConfig>
 
