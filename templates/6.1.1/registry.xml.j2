@@ -41,19 +41,19 @@
 {% for registry_mount in registry_mounts %}
 
     <dbConfig name="{{ master_datasources['registry_mount.name'].name }}">
-        <dataSource>{{ master_datasources{{ registry_mount.name }}.jndi_config }}</dataSource>
+        <dataSource>{{ master_datasources['registry_mount.name'].jndi_config }}</dataSource>
     </dbConfig>
 
 <remoteInstance url="https://localhost:8243/registry">
-        <id>{{ master_datasources[ {{.name }}</id>
-        <dbConfig>{{ master_datasources{{ registry_mount.name }}.name }}</dbConfig>
+        <id>{{ master_datasources['registry_mount.name'].name }}</id>
+        <dbConfig>{{ master_datasources['registry_mount.name'].name }}</dbConfig>
         <readOnly>{{ registry_mount.read_only}}</readOnly>
         <registryRoot>{{ registry_mount.registry_root }}</registryRoot>
         <enableCache>{{registry_mount.enable_cache }}</enableCache>
-        <cacheId>{{ master_datasources{{ registry_mount.name }}.username }}@{{ master_datasources{{ registry_mount.name }}.url }}</cacheId>
+        <cacheId>{{ master_datasources['registry_mount.name'].username }}@{{ master_datasources['registry_mount.name'].url }}</cacheId>
     </remoteInstance> 
     <mount path="{{registry_mount.path }}" overwrite="virtual">
-        <instanceId>{{ master_datasources{{ registry_mount.name }}.name }}</instanceId>
+        <instanceId>{{ master_datasources['registry_mount.name'].name }}</instanceId>
         <targetPath>{{ registry_mount.target_path }}</targetPath>
     </mount>    
    {% endfor %}
