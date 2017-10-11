@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
+
 <!--
-  ~ Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~ Copyright 2005-2011 WSO2, Inc. (http://wso2.com)
   ~
-  ~ WSO2 Inc. licenses this file to you under the Apache License,
-  ~ Version 2.0 (the "License"); you may not use this file except
-  ~ in compliance with the License.
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
   ~ You may obtain a copy of the License at
   ~
   ~ http://www.apache.org/licenses/LICENSE-2.0
   ~
-  ~ Unless required by applicable law or agreed to in writing,
-  ~ software distributed under the License is distributed on an
-  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-  ~ KIND, either express or implied. See the License for the
-  ~ specific language governing permissions and limitations
-  ~ under the License.
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
   -->
-
 <wso2registry>
 
     <!--
@@ -24,17 +22,13 @@
     http://wso2.org/library/tutorials/2010/04/sharing-registry-space-across-multiple-product-instances
     -->
 
-    <dbConfig name="remote_registry">
-    <dataSource>jdbc/INTER_GREG_LST</dataSource>
-    </dbConfig> 
-
     <currentDBConfig>wso2registry</currentDBConfig>
     <readOnly>false</readOnly>
     <enableCache>true</enableCache>
     <registryRoot>/</registryRoot>
 
     <dbConfig name="wso2registry">
-        <dataSource>jdbc/INTER_ESB_NODO_LST</dataSource>
+        <dataSource>jdbc/WSO2CarbonDB</dataSource>
     </dbConfig>
 
 {% if registry_mounts %}    
@@ -57,26 +51,25 @@
         <targetPath>{{ registry_mount.target_path }}</targetPath>
     </mount>    
    {% endfor %}
-   {% endif %}
-  
- <!--
+   {% endif %}  
+ 
+<!--
     <mount path="/_system/config" overwrite="true">
         <instanceId>instanceid</instanceId>
-        <targetPath>/_system/esbnodes</targetPath>
+        <targetPath>/_system/analyticsnodes</targetPath>
     </mount>
     <mount path="/_system/governance" overwrite="true">
         <instanceId>instanceid</instanceId>
         <targetPath>/_system/governance</targetPath>
     </mount>
 -->
-    
+
     <indexingConfiguration>
-        <startIndexing>true</startIndexing>
         <startingDelayInSeconds>35</startingDelayInSeconds>
         <indexingFrequencyInSeconds>3</indexingFrequencyInSeconds>
         <!--number of resources submit for given indexing thread -->
         <batchSize>50</batchSize>
-         <!--number of worker threads for indexing -->
+        <!--number of worker threads for indexing -->
         <indexerPoolSize>50</indexerPoolSize>
         <!-- location storing the time the indexing took place-->
         <lastAccessTimeLocation>/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime</lastAccessTimeLocation>
@@ -92,6 +85,7 @@
             <indexer class="org.wso2.carbon.registry.indexing.indexer.PlainTextIndexer" mediaTypeRegEx="application/(.)+\+json"/>
             <indexer class="org.wso2.carbon.registry.indexing.indexer.PlainTextIndexer" mediaTypeRegEx="text/(.)+"/>
             <indexer class="org.wso2.carbon.registry.indexing.indexer.PlainTextIndexer" mediaTypeRegEx="application/x-javascript"/>
+            <indexer class="org.wso2.carbon.registry.indexing.indexer.PlainTextIndexer" mediaTypeRegEx="*"/>
         </indexers>
         <exclusions>
             <exclusion pathRegEx="/_system/config/repository/dashboards/gadgets/swfobject1-5/.*[.]html"/>
@@ -155,7 +149,7 @@
     </mount-->
 
     
-    <versionResourcesOnChange>true</versionResourcesOnChange>
+    <versionResourcesOnChange>false</versionResourcesOnChange>
 
     <!-- NOTE: You can edit the options under "StaticConfiguration" only before the
      startup. -->
