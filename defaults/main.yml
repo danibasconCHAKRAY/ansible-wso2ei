@@ -65,6 +65,8 @@ master_datasources:
     password:  uzk13VNC
     jndi_config: jdbc/INTER_USER_LST
 
+registry_mount_db: WSOGR_OWNER@jdbc:oracle:thin:WSOGR_OWNER/GOp22qpS@vmorades11.cfv.junta-andalucia.es:1541/ORADES11
+
 registry_mounts:
   - wso2_config_db:
     path: /_system/config
@@ -80,6 +82,8 @@ registry_mounts:
     enable_cache: true
 
 
+# Variables para analytics
+# 
 analytics_enabled : false
 analytics_payloads_stats: true
 analytics_properties_stats: true
