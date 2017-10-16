@@ -7,13 +7,14 @@
 #  register: is_installed
 #  with_items:
 #   - zip
-- name: install "{{ item }}" if not exist
+- name: install required rpm and software
   yum:
     name: "{{ item }}"
     state: latest
 #  when:  (is_installed.results|length == 1) or (is_installed.results[1].yumstate != 'installed') 
   with_items:
    - zip
+   - unzip
 
 #- name: check that firewalld is running
 #  become: true
