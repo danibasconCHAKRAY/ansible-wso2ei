@@ -83,6 +83,17 @@
     src: "{{ carbon_base }}/{{ wso2_app_directory }}"
     dest: "{{ carbon_home }}"
   when: not version_deployed.stat.exists
+
+- name: Apply a new version of integrator.sh
+  become: true
+  become_method: sudo
+  template:
+    src: "{{ wso2_app_version }}/integrator.sh.j2"
+    dest: "{{ carbon_base }}/{{ wso2_app_directory }}/bin/integrator.sh"
+    mode: 0755
+  tags:
+    - script
+
   
 - name: Add wso2 symlink to /usr/local/bin.
   become: true
