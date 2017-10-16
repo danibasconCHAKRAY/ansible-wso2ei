@@ -81,6 +81,15 @@ registry_mounts:
     registry_root: /
     enable_cache: true
 
+# Variables for cluster
+
+cluster_domain: wso2.ei.001.domain
+cluster_mcast_port: 45564
+cluster_local_member_host: 
+cluster_local_member_port: 4100
+cluster_wka_member_host: 
+cluster_wka_member_port: 4100
+
 
 # Variables para analytics
 # 
