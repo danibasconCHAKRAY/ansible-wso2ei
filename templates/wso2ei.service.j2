@@ -10,10 +10,9 @@ User={{ wso2_user }}
 Group={{ wso2_group }}
 RemainAfterExit=yes
 
-Environment=JAVA_HOME={{ java_home }}
+Environment=JAVA_HOME={{java_home}}
 Environment=JAVA_OPTS=
-Environment=JVM_MEM_OPTS="{{ jvm_mem }}"
-
+Environment=JVM_MEM='{{jvm_mem}}'
 PIDFile={{ carbon_home }}/wsp2ei.pid
 ExecStart={{ carbon_home }}/bin/integrator.sh -DportOffset={{wso2_app_offset}} start
 ExecStop={{ carbon_home }}/bin/integrator.sh -DportOffset={{wso2_app_offset}} stop
