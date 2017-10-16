@@ -1,14 +1,15 @@
 ---
 # handlers file for klousiaj.wso2-esb
+- name: start wso2-app
+  systemd: state=started name="inope-{{ wso2_app }}.service" daemon_reload=yes
 - name: restart wso2-app
   become: true
   become_method: sudo
   systemd:
-    name: "inope-{{ wso2_app }}" 
+    name: "inope-{{ wso2_app }}.service" 
     state: restarted
 - name: reload systemd
   become: true
-  systemd: 
-    name: "inope-{{ wso2_app }}"
-    daemon_reload: yes
+  become_method: sudo
+  command: systemctl daemon-reload
 

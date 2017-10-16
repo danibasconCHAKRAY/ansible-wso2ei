@@ -143,8 +143,9 @@
   systemd:
     name: "inope-{{ wso2_app }}"
     enabled: yes
-#    state: started
+    state: started
     masked: no
+  daemon_reload: yes
   notify: reload systemd
   tags:
    - systemd
