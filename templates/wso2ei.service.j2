@@ -14,8 +14,8 @@ Environment=JAVA_HOME={{java_home}}
 Environment=JAVA_OPTS=
 Environment=JVM_MEM='{{jvm_mem}}'
 PIDFile={{ carbon_home }}/wsp2ei.pid
-ExecStart={{ carbon_home }}/bin/integrator.sh -DportOffset={{wso2_app_offset}} start
-ExecStop={{ carbon_home }}/bin/integrator.sh -DportOffset={{wso2_app_offset}} stop
+ExecStart=/etc/init.d/inope-{{ wso2_app }} start
+ExecStop=/etc/init.d/inope-{{ wso2_app }} stop
 TimeoutSec=120 
 
 [Install]

@@ -93,18 +93,18 @@
     state: link
   when: not version_deployed.stat.exists
 
-#### section for initializing the application to start and run as a service. 
-#- name: Add wso2 app init script.
-#  become: true
-#  become_method: sudo
-#  template:
-#    src: wso2service.j2
-#    dest: "/etc/init.d/inope-{{ wso2_app }}"
-#    mode: 0755
- # notify: restart wso2-app
-#  tags:
-#   - initd 
-#
+# section for initializing the application to start and run as a service. 
+- name: Add wso2 app init script.
+  become: true
+  become_method: sudo
+  template:
+    src: wso2service.j2
+    dest: "/etc/init.d/inope-{{ wso2_app }}"
+    mode: 0755
+ notify: restart wso2-app
+  tags:
+   - initd 
+
 
 - name: Add wso2 app init script.
   become: true
