@@ -101,7 +101,6 @@
     src: wso2service.j2
     dest: "/etc/init.d/inope-{{ wso2_app }}"
     mode: 0755
- notify: restart wso2-app
   tags:
    - initd 
 
