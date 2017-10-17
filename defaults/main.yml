@@ -111,7 +111,9 @@ analytics_enabled : false
 analytics_payloads_stats: true
 analytics_properties_stats: true
 analytics_all_artifacts_stats: true
-analytics_server_username : admin
-analytics_server_password : admin
+analytics_host : localhost
+analytics_user : admin
+#analytics_passwd : admin
+analytics_passwd : "QHD9+84xAoyRGYwxbvVwKO6J4B7HgmZA04ib6Gz/t+/YdfSsHMjT5vLVMzDy425SxTU1p0ugEedB/b7TlVcLKrgp3TGrin9UnY6Hix0V6vzOMaWDKLzoe2cc5AdudwplDqRN+kRPwMgxcnUAkG76ttf0nfvyiB8nu2hIhag3KN+1CCPZ8PovzxCpqw791naOz1gvJRjtcwmEagCGO48Bck45djrN+1/HPYC+xpyX4unG/ahOPbtBrvVZMXDRQDwPUtmpA41N6zF0Ty6V/Itr0F8vkYWKziXHUZiJWBQ9FzsuI5BTpo1RGwdnrGumUh2Mu5cCulUvOEJ5cz6SaC1oYQ=="
 
 

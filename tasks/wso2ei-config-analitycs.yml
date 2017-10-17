@@ -1,0 +1,26 @@
+- name: Templates to activate a analytics dashboard
+  become: true
+  become_method: sudo
+  become_user: "{{ wso2_user }}"
+  template:
+    src: "{{ wso2_app_version }}/{{ item }}.j2"
+    dest: "{{ carbon_base }}/{{ wso2_app_directory }}/conf/{{ item }}"
+    mode: 0644
+  with_items:
+    - synapse.xml
+  tags:
+    - minidash-config
+
+- name: Templates for deployments 
+  become: true
+  become_method: sudo
+  become_user: "{{ wso2_user }}"
+  template:
+    src: "{{ wso2_app_version }}/deployment/{{ item }}.j2"
+    dest: "{{ carbon_base }}/{{ wso2_app_directory }}/repository/deployment/server/eventpublishers/{{ item }}"
+    mode: 0644
+  with_items:
+    - MessageFlowConfigurationPublisher.xml
+    - MessageFlowStatisticsPublisher.xm
+  tags:
+    - minidash-deploy

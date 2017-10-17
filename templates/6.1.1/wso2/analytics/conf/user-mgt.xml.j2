@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <!--
   ~ Copyright WSO2, Inc. (http://wso2.com)
   ~
@@ -18,14 +19,17 @@
     <Realm>
         <Configuration>
 		<AddAdmin>true</AddAdmin>
-            <AdminRole>admin</AdminRole>
+            <AdminRole>{{ admin_role | default('admin')  }}</AdminRole>
             <AdminUser>
-                <UserName>admin</UserName>
-                <Password>admin</Password>
+                <UserName>{{ admin_username | default('admin') }}</UserName>
+                <Password>{{ admin_password | default('admin') }}</Password>
             </AdminUser>
             <EveryOneRoleName>everyone</EveryOneRoleName> <!-- By default users in this role sees the registry root -->
             <Property name="isCascadeDeleteEnabled">true</Property>
+            <!--
             <Property name="dataSource">jdbc/WSO2CarbonDB</Property>
+            -->
+            <Property name="dataSource">{{ usermgt_datasource }}</Property>
         </Configuration>
 
 	    <!-- Following is the configuration for internal JDBC user store. This user store manager is based on JDBC.
