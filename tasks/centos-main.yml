@@ -15,6 +15,9 @@
   with_items:
    - zip
    - unzip
+   - rsync
+  tags:
+   - rpms
 
 #- name: check that firewalld is running
 #  become: true

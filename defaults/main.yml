@@ -90,6 +90,20 @@ cluster_local_member_port: 4100
 cluster_wka_member_host: "{{ inventory_hostname }}"
 cluster_wka_member_port: 4100
 
+#DeploySync
+
+deploysync_enabled: false
+deploysync_autocommit: false
+deploysync_autocheckout: true
+deploysync_repotype: svn
+deploysync_svnurl: http://svnrepo.example.com/repos/
+deploysync_svnuser: username
+deploysync_svnpass: password
+deploysync_appendtenantid: true
+
+#Rsync
+rsync_node01: "{{ ansible_hostname }}"
+
 
 # Variables para analytics
 # 

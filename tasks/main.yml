@@ -14,7 +14,7 @@
     name: "{{ wso2_user }}"
     system: yes
     home: "/home/{{ wso2_user }}"
-    shell: /bin/false
+    shell: /bin/bash
     group: "{{ wso2_group }}"
     state: present
     
@@ -87,6 +87,7 @@
 - name: Apply a new version of integrator.sh
   become: true
   become_method: sudo
+  become_user: "{{ wso2_user }}"
   template:
     src: "{{ wso2_app_version }}/integrator.sh.j2"
     dest: "{{ carbon_base }}/{{ wso2_app_directory }}/bin/integrator.sh"
@@ -94,7 +95,20 @@
   tags:
     - script
 
-  
+- name: Apply rsync script and node list
+  become: true
+  become_method: sudo
+  become_user: "{{ wso2_user }}"
+  template:
+    src: "{{ wso2_app_version }}/{{ item }}.j2"
+    dest: "{{ carbon_home }}/{{ item }}"
+    mode: 0755
+  with_items:
+    - rsync.sh
+    - nodes-list.txt
+  tags: 
+    - rsync 
+
 - name: Add wso2 symlink to /usr/local/bin.
   become: true
   become_method: sudo

@@ -580,15 +580,16 @@
 	In master nodes you need to set both AutoCommit and AutoCheckout to true
 	and in  worker nodes set only AutoCheckout to true.
     -->
+
     <DeploymentSynchronizer>
-        <Enabled>false</Enabled>
-        <AutoCommit>false</AutoCommit>
-        <AutoCheckout>true</AutoCheckout>
-        <RepositoryType>svn</RepositoryType>
-        <SvnUrl>http://svnrepo.example.com/repos/</SvnUrl>
-        <SvnUser>username</SvnUser>
-        <SvnPassword>password</SvnPassword>
-        <SvnUrlAppendTenantId>true</SvnUrlAppendTenantId>
+        <Enabled>{{ deploysync_enabled }}</Enabled>
+        <AutoCommit>{{ deploysync_autocommit }}</AutoCommit>
+        <AutoCheckout>{{ deploysync_autocheckout }}</AutoCheckout>
+        <RepositoryType>{{ deploysync_repotype }}</RepositoryType>
+        <SvnUrl>{{ deploysync_svnurl }}</SvnUrl>
+        <SvnUser>{{ deploysync_svnuser }}</SvnUser>
+        <SvnPassword>{{ deploysync_svnpass }}</SvnPassword>
+        <SvnUrlAppendTenantId>i{{ deploysync_appendtenantid }}</SvnUrlAppendTenantId>
     </DeploymentSynchronizer>
 
     <!-- Deployment Synchronizer Configuration. Uncomment the following section when running with "registry based" dep sync.
