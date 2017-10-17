@@ -491,8 +491,9 @@
      corresponding to the "class" attribute of the "clustering" element. It is also responsible for
      getting this node to join the cluster.
      -->
+     {% if cluster_enabled is defined and "{{ cluster_enabled }}" == 'true' %}
         <clustering class="org.wso2.carbon.core.clustering.hazelcast.HazelcastClusteringAgent"
-                enable="true">
+                enable="{{ cluster_enabled }}">
 
         <parameter name="AvoidInitiation">true</parameter>
 
@@ -529,6 +530,10 @@
                                subDomain="worker"
                                port="2222"/>
         </groupManagement>
+    {% else %}
+        <clustering class="org.wso2.carbon.core.clustering.hazelcast.HazelcastClusteringAgent"
+                enable="false">
+    {% endif %}
     </clustering>
 
     <!-- ================================================= -->
