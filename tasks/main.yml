@@ -171,7 +171,7 @@
 - name: Apply templates to enable a Analytics server
   import_tasks: wso2ei-config-analitycs.yml
   notify: restart wso2-app
-  when: analytics_enabled is defined and {{ analytics_enabled }} == 'true'
+  when: analytics_enabled is defined
   tags:
     - config
 

@@ -61,7 +61,7 @@ synapse.debugger.port.event=9006
 
 # Configuration to enable mediation flow analytics
 
-{% if analytics_enabled is defined and {{ analytics_enabled }} == 'true' %}
+{% if analytics_enabled is defined and analytics_enabled %}
 
 mediation.flow.statistics.enable=true
 mediation.flow.statistics.tracer.collect.payloads=true

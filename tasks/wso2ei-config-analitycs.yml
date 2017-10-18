@@ -7,7 +7,7 @@
     dest: "{{ carbon_base }}/{{ wso2_app_directory }}/conf/{{ item }}"
     mode: 0644
   with_items:
-    - synapse.xml
+    - synapse.properties
   tags:
     - minidash-config
 
@@ -21,6 +21,6 @@
     mode: 0644
   with_items:
     - MessageFlowConfigurationPublisher.xml
-    - MessageFlowStatisticsPublisher.xm
+    - MessageFlowStatisticsPublisher.xml
   tags:
     - minidash-deploy
