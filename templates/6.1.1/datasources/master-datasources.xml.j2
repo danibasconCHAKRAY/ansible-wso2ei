@@ -27,7 +27,7 @@
                 </configuration>
             </definition>
         </datasource>
-
+       {% if local_datasources is defined %}
        {% for datasource in local_datasources %}
         <datasource>
             <name>{{ datasource.name }}</name>
@@ -51,8 +51,10 @@
             </definition>
         </datasource>
         {% endfor %}
+        {% endif %}
 
 
+       {% if master_datasources is defined %}
         {% for datasource in master_datasources %}
 
         <datasource>
@@ -76,6 +78,7 @@
             </definition>
         </datasource>
         {% endfor %}    
+        {% endif %}
 
     </datasources>
 

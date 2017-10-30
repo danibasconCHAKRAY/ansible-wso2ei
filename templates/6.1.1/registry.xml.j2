@@ -25,7 +25,7 @@
     -->
 
     <dbConfig name="remote_registry">
-    <dataSource>jdbc/INTER_GREG_LST</dataSource>
+    <dataSource>{{ govreg_datasource | default('jdbc/WSO2CarbonDB') }}</dataSource>
     </dbConfig> 
 
     <currentDBConfig>wso2registry</currentDBConfig>
@@ -34,7 +34,12 @@
     <registryRoot>/</registryRoot>
 
     <dbConfig name="wso2registry">
+    {% if local_datasources is defined %}
         <dataSource>jdbc/INTER_ESB_NODO_LST</dataSource>
+    {% else %}
+           <dataSource>jdbc/WSO2CarbonDB</dataSource>
+    {% endif %}
+ 
     </dbConfig>
 
    <remoteInstance url="https://localhost:8243/registry">
