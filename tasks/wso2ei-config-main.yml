@@ -34,6 +34,20 @@
   tags:
     - ei-config
 
+- name: Templates for security/
+  become: true
+  become_method: sudo
+  become_user: "{{ wso2_user }}"
+  template:
+    src: "{{ wso2_app_version }}/security/{{ item }}.j2"
+    dest: "{{ carbon_base }}/{{ wso2_app_directory }}/conf/security/{{ item }}"
+    mode: 0644
+  with_items:
+    - Owasp.CsrfGuard.Carbon.properties
+  tags:
+    - ei-config
+
+
 - name: Template axis2.xml 
   become: true
   become_method: sudo

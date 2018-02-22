@@ -7,6 +7,9 @@
   group:
     name: "{{ wso2_group }}"
     state: present  
+  tags:
+    - enviroment
+
 - name: Create service account for wso2
   become: true
   become_method: sudo
@@ -17,6 +20,8 @@
     shell: /bin/bash
     group: "{{ wso2_group }}"
     state: present
+  tags:
+    - enviroment
     
 - name: Add the wso2-app-sudoers script 
   become: true
@@ -26,6 +31,8 @@
     dest: "/etc/sudoers.d/{{wso2_app}}-sudoers"
     validate: 'visudo -cf %s'
     mode: 0440
+  tags:
+    - enviroment
   
 - import_tasks: centos-main.yml
   when: ansible_os_family == 'RedHat'
@@ -68,6 +75,8 @@
     mode: 0755
     state: directory
   when: not version_deployed.stat.exists
+  tags:
+    - enviroment
 
 - name: Move WSO2 directory into place.
   become: true

@@ -44,8 +44,8 @@
        This is will become part of the End Point Reference of the
        services deployed on this server instance.
     -->
-{% if hostname is defined %}
-    <HostName>{{ hostname }}</HostName>
+{% if MgtHostname is defined %}
+    <HostName>{{ inventory_hostname }}</HostName>
 {% else %}
     <!--HostName>www.wso2.org</HostName-->
 {% endif %}

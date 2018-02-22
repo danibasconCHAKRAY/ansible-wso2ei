@@ -9,9 +9,6 @@
     <property name="publishingMode">blocking</property>
     <property name="publishTimeout">0</property>
     <property name="receiverURL">tcp://{{ analytics_host }}:7612</property>
-    <property encrypted="true" name="password">{{ analytics_passwd }}</property>
-<!--
-    <property encrypted="true" name="password">QHD9+84xAoyRGYwxbvVwKO6J4B7HgmZA04ib6Gz/t+/YdfSsHMjT5vLVMzDy425SxTU1p0ugEedB/b7TlVcLKrgp3TGrin9UnY6Hix0V6vzOMaWDKLzoe2cc5AdudwplDqRN+kRPwMgxcnUAkG76ttf0nfvyiB8nu2hIhag3KN+1CCPZ8PovzxCpqw791naOz1gvJRjtcwmEagCGO48Bck45djrN+1/HPYC+xpyX4unG/ahOPbtBrvVZMXDRQDwPUtmpA41N6zF0Ty6V/Itr0F8vkYWKziXHUZiJWBQ9FzsuI5BTpo1RGwdnrGumUh2Mu5cCulUvOEJ5cz6SaC1oYQ==</property>
--->
+    <property encrypted="false" name="password">{{ analytics_passwd }}</property>
   </to>
 </eventPublisher>
