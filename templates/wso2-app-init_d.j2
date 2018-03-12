@@ -8,7 +8,8 @@
 ### END INIT INFO
 
 # Author: J.P. Klousia
-export JAVA_HOME='{{ java_home }}'
+JAVA_HOME='{{ java_home }}'
+export JAVA_HOME
 
 startcmd='{{ carbon_home }}/bin/wso2server.sh -DportOffset={{wso2_app_offset}} start > /dev/null &'
 restartcmd='{{ carbon_home }}/bin/wso2server.sh -DportOffset={{wso2_app_offset}} restart > /dev/null &'

@@ -14,8 +14,8 @@ The following variables are defined in the `defaults/main.yml` file.
 
     ---
     # defaults file for ansible-wso2esb
-    wso2_user: inope
-    carbon_base: "/import/software/{{wso2_app}}"
+    wso2_user: ws02
+    carbon_base: "/opt/{{wso2_app}}"
     carbon_home: "{{carbon_base}}/current"
     
     # these are the default ports for wso2 products
@@ -23,7 +23,7 @@ The following variables are defined in the `defaults/main.yml` file.
     wso2_default_http_port: 9763
     
     #the following is written into the init.d file for the service
-    java_home: "/import/software/java17_01"
+    java_home: "/usr/local/java"
     
     # wso2
     wso2_app: wso2ei
@@ -42,7 +42,7 @@ Example Playbook
 ----------------
 
     ---
-    - hosts: *
+    - hosts: all
       roles:
         - { role: ansible-wso2esb, wso2_app: "wso2ei", wso2_app_version: "6.1.1"}
 
