@@ -1,5 +1,5 @@
 ---
-# tasks file for klousiaj.wso2-esb
+# tasks file for ansible-wso2ei
 
 #### section for creating wso2 user and appropriate credentials and access.
 - name: Create service group for wso2

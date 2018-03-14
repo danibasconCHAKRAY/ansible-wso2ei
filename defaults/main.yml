@@ -1,5 +1,5 @@
 ---
-# defaults file for klousiaj.wso2-esb
+# defaults file for ansible-wso2ei
 wso2_user: wso2
 wso2_group: wso2
 carbon_base: "/opt/wso2/{{wso2_app}}"

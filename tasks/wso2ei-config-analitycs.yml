@@ -11,7 +11,7 @@
   tags:
     - minidash-config
 
-- name: Templates for deployments 
+- name: Templates for deployments
   become: true
   become_method: sudo
   become_user: "{{ wso2_user }}"

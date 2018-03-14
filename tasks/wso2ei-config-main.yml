@@ -5,7 +5,7 @@
   tags:
     - db_driver
 
-- name: Copy the database drivers 
+- name: Copy the database drivers
   become: true
   become_method: sudo
   become_user: "{{ wso2_user }}"
@@ -48,7 +48,7 @@
     - ei-config
 
 
-- name: Template axis2.xml 
+- name: Template axis2.xml
   become: true
   become_method: sudo
   become_user: "{{ wso2_user }}"
@@ -60,7 +60,7 @@
     - ei-config
     - axis2
 
-- name: Template master-datasource.xml 
+- name: Template master-datasource.xml
   become: true
   become_method: sudo
   become_user: "{{ wso2_user }}"
