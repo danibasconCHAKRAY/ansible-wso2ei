@@ -1,6 +1,6 @@
 # tasks file for ansible-wso2ei - Specific for CentOS
 
-- name: install required software
+- name: install required rpm and software
   apt:
     name: "{{ item }}"
     state: present

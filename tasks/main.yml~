@@ -96,7 +96,7 @@
     dest: "{{ carbon_home }}"
   when: not version_deployed.stat.exists
 
-- name: Apply a new version of integrator.sh parametrized with JAVA_OPTS
+- name: Apply a new version of integrator.sh
   become: true
   become_method: sudo
   become_user: "{{ wso2_user }}"
@@ -141,6 +141,7 @@
   tags:
    - initd
 
+
 - name: Add wso2 app init script.
   become: true
   become_method: sudo
@@ -152,6 +153,16 @@
   notify: reload systemd
   tags:
    - systemd
+
+
+#- name: Ensure wso2-app is set to start on boot.
+#  become: true
+#  become_method: sudo
+#  service:
+#    name: "{{ wso2_app }}"
+#    enabled: yes
+#    state: started
+#  notify: restart wso2-app
 
 - name: Ensure wso2-app is set to start on boot.
   become: true

@@ -1,4 +1,4 @@
-- name: Check if the drivers files for database backend
+- name: Check if the drivers files are present
   stat:
     path: "{{ carbon_base }}/{{ wso2_app_directory }}/lib/{{ db_driver }}"
   register: db_driver_deployed
@@ -34,7 +34,7 @@
   tags:
     - ei-config
 
-- name: Templates for security/ 
+- name: Templates for security/
   become: true
   become_method: sudo
   become_user: "{{ wso2_user }}"
@@ -46,6 +46,7 @@
     - Owasp.CsrfGuard.Carbon.properties
   tags:
     - ei-config
+
 
 - name: Template axis2.xml
   become: true
