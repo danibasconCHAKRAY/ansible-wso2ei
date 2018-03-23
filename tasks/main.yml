@@ -71,7 +71,7 @@
     mode: 0755
   with_items:
     - "{{ wso2_app_archive }}"
-  when: not version_deployed.stat.exists unzip_exists.stat.exists == true
+  when: not version_deployed.stat.exists and unzip_exists.stat.exists
 
 - name: Make the base directory for the wso2 apps.
   become: true
