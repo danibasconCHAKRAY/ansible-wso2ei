@@ -45,6 +45,11 @@
     path: "{{ carbon_base }}/{{ wso2_app_directory }}"
   register: version_deployed
 
+- name: Check if the unzip folder exists 
+  stat:
+    path: "{{ unzip_folder }}"
+  register: unzip_exists
+
 - name: Make the unzip directory for the wso2 apps.
   become: true
   become_method: sudo
@@ -54,7 +59,7 @@
     group: "{{ wso2_group }}"
     mode: 0775
     state: directory
-  when: not version_deployed.stat.exists
+  when: not version_deployed.stat.exists and unzip_exists.stat.exists == false
 
 - name: Copy the file and unzip it on the remote system
   become: true
@@ -66,7 +71,7 @@
     mode: 0755
   with_items:
     - "{{ wso2_app_archive }}"
-  when: not version_deployed.stat.exists
+  when: not version_deployed.stat.exists unzip_exists.stat.exists == true
 
 - name: Make the base directory for the wso2 apps.
   become: true
